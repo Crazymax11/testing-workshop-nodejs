@@ -1,6 +1,6 @@
 import supertest from "supertest";
 import Koa from "koa";
-import { routes } from ".";
+import { userRoutes } from "./users";
 import { expect } from "chai";
 import nock from "nock";
 import { userFixture } from "./fixtures";
@@ -12,7 +12,7 @@ nock.enableNetConnect("127.0.0.1");
 
 const app = new Koa();
 
-app.use(routes);
+app.use(userRoutes);
 const server = app.listen();
 const request = supertest(server);
 
